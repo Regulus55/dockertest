@@ -1,0 +1,16 @@
+services:
+  webserver:
+    image: nodeserver:1
+    ports:
+      - 3000:3000
+    build: .
+
+  nginx:
+    image: nginx:1
+    ports:
+      - 80:80
+    restart: always
+    depends_on:
+      - webserver
+
+name: hakfront
